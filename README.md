@@ -2,7 +2,7 @@
 
 AI powerd Learning platform for enrich and clear the concept
 
-![Interface](src\assets\interface.webp)
+![Interface](src/assets/interface.webp)
 
 ## Installation / Setup ✨
 
