@@ -1,8 +1,17 @@
-# React + Vite
+# Medilink
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AI powerd Learning platform for enrich and clear the concept
 
-Currently, two official plugins are available:
+![Interface](src\assets\interface.webp)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation / Setup ✨
+
+1. First Clone
+    ```bash
+    git clone https://github.com/Sarthak-Kumbhar/Medilink.git
+2. Install Dependencies
+    ```bash
+    npm install
+3. Finally Run 🎉
+    ```bash
+    npm run dev
