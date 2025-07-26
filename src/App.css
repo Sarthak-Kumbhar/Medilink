@@ -1,0 +1,29 @@
+body {
+  background-color: #E7EFC7;
+  color: #8A784E;
+}
+
+
+input::placeholder {
+  color: #aec8a4 !important;
+}
+
+input::-webkit-input-placeholder {
+  color: #aec8a4;
+}
+
+input:-moz-placeholder {
+  color: #aec8a4;
+}
+
+input::-moz-placeholder {
+  color: #aec8a4;
+}
+
+input:-ms-input-placeholder {
+  color: #aec8a4;
+}
+
+.typed-cursor {
+  display: none;
+}
