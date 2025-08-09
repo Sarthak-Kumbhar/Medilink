@@ -24,8 +24,8 @@ const Section3 = () => {
   }, []);
 
   return (
-    <footer id="ft" className="w-full h-[100dvh] relative text-black">
-      <div className="absolute bottom-0 w-full h-1/2 bg-[#84AE92] p-6">
+    <footer id="ft" className="w-full h-[100dvh] relative text-white">
+      <div className="absolute bottom-0 w-full h-1/2 bg-[#004030] p-6">
         <h1 className="text-7xl md:text-9xl font-[array]">Medilink</h1>
         <div className="max-w-[500px]">
           <ul className="flex space-x-4">

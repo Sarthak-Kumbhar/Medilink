@@ -13,7 +13,7 @@ const Section2 = () => {
       { opacity: 0 },
       {
         opacity: 1,
-        duration: 5,
+        duration: 2,
         scrollTrigger: {
           trigger: '#about',
           start: 'top center',
@@ -25,7 +25,7 @@ const Section2 = () => {
             onComplete: () => {
               gsap.to('#send', {
                 backgroundColor: 'lightgray',
-                duration: 0.5,
+                duration: 2,
                 onComplete: () => {
                   const answerTyped = new Typed('#answer', {
                     strings: [
@@ -58,13 +58,8 @@ const Section2 = () => {
       <div className="w-full md:w-1/2 h-full p-4">
         <h1 className="text-4xl">About</h1>
         <div className="max-w-[600px] mt-4">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-          cum ea sunt id velit assumenda magnam veritatis corporis illum, rerum
-          odit, numquam iure eos saepe blanditiis doloremque vero sequi
-          molestiae? Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-          Similique, laboriosam? Maiores facilis saepe at atque quae et est
-          eveniet, inventore neque veniam aspernatur reprehenderit quidem? Nulla
-          fuga cumque ducimus quidem? 😊
+          We are team of Engineers, Solving Problem for that students face while there learning.
+          our idea is to improve the student way of learing providing them better understanding what they learn 😊
         </div>
       </div>
 

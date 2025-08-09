@@ -1,9 +1,8 @@
 import jwt from "jsonwebtoken"
-import SendError from "../utility/Error.handlers";
+import SendError from "../utility/Error.handlers.js";
 
-export const authorize = (req,res,next) => {
-  const token = req.cookie?.token;
-
+export const authenticate = (req,res,next) => {
+  const token = req.cookies?.token;
   if(!token){
     throw new SendError(404,"invalid request toekn not found")
   }

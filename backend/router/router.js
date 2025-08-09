@@ -1,13 +1,13 @@
 import Router from "express"
-import { googleLogin, googleSignup, login, signup } from "../controller/user.auth.js"
+import { check, deleteAccount, googleLogin, login, logout } from "../controller/user.auth.js"
+import { authenticate } from "../middleware/authenticate.js"
 
 export const router = Router()
 
 
 // user authentication
 router.post("/login",login)
-router.post("/signup",signup)
 router.post("/login/google",googleLogin)
-router.post("/signup/google",googleSignup)
-
-
+router.post("/logout", authenticate,logout)
+router.post("/delete",authenticate,deleteAccount)
+router.get("/presence",check)
