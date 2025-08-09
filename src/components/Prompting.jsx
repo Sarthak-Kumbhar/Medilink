@@ -4,6 +4,7 @@ import { GrAttachment } from "react-icons/gr";
 import { FaEarthAmericas, FaCube } from "react-icons/fa6";
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router';
+const cohereAPI = import.meta.env.VITE_COHERE_API_KEY
 
 const Prompting = () => {
   const textareaRef = useRef(null);
@@ -41,7 +42,7 @@ const Prompting = () => {
       const response = await fetch('https://api.cohere.ai/v1/chat', {
         method: 'POST',
         headers: {
-          'Authorization': 'Bearer xyz',
+          'Authorization': `Bearer ${cohereAPI}`,
           'Content-Type': 'application/json',
           'Cohere-Version': '2022-12-06'
         },
