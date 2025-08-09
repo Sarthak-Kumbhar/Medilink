@@ -5,8 +5,10 @@ import App from "./App.jsx";
 import Prompting from "./components/Prompting.jsx";
 import {} from "react-router";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+import { Provider } from "react-redux";
+import { Store } from "./store/store.js";
+import Login from "./components/login.jsx";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const router = createBrowserRouter([
   {
@@ -17,11 +19,15 @@ const router = createBrowserRouter([
     path: "/chat",
     element: <Prompting />,
   },
+  {
+    path: "/login",
+    element: <Login />,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <GoogleOAuthProvider clientId={googleClientId}>
+    <GoogleOAuthProvider clientId="325985031256-5uvorhpo1ni9mdchlemdpr261pn793b5.apps.googleusercontent.com">
       <Provider store={Store}>
         <RouterProvider router={router} />
       </Provider>

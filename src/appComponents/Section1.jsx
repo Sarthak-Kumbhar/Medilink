@@ -36,7 +36,7 @@ const Section1 = () => {
               Plans
             </li>
             <li className="w-[100px] h-full border-r border-l border-black pl-6 pr-6 hidden md:flex items-center justify-center hover:bg-[#CAE8BD] transition hover:cursor-pointer">
-              Contact
+              <Link to={'/login'}>Login</Link>
             </li>
             <li className="w-full md:w-[100px] h-full pl-6 pr-6 flex items-center justify-center hover:bg-[#CAE8BD] transition hover:cursor-pointer">
               <LuMenu className="text-[#3b3b1a]"/>
