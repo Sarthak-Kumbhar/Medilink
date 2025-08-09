@@ -21,6 +21,7 @@
     "react-redux": "^9.2.0",
     "react-router": "^7.7.1",
     "react-router-dom": "^7.7.1",
+    "redux-persist": "^6.0.0",
     "tailwindcss": "^4.1.11",
     "typed.js": "^2.1.0"
   },
