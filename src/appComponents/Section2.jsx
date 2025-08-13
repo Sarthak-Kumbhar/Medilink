@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import Typed from 'typed.js';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import "./appComponent.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -53,7 +54,7 @@ const Section2 = () => {
   return (
     <section
       id="about"
-      className="w-full min-h-[100dvh] p-4 md:p-6 flex flex-col md:flex-row justify-center gap-4 relative"
+      className="w-full min-h-[100dvh] p-4 md:p-0 pt-4 pb-4 flex flex-col md:flex-row justify-between relative md:mb-0 mb-16 md:gap-0 gap-16"
     >
       <div className="w-full md:w-1/2 h-full p-4">
         <h1 className="text-4xl">About</h1>
@@ -63,12 +64,12 @@ const Section2 = () => {
         </div>
       </div>
 
-      <div className="w-full md:w-1/2 min-h-full border border-black p-4 relative text-black">
-        <div id="answer" className="text-[14px] md:text-xl"></div>
+      <div className="w-full min-h-[500px] md:w-[600px] md:h-[500px] border border-black p-4 relative text-black md:mt-16 Ai">
+        <div id="answer" className="text-[14px] md:text-[14px]"></div>
 
         <div
           id="aiimg"
-          className="w-[200px] h-[100px] md:w-[400px] md:h-[200px] bg-[url('https://images.pexels.com/photos/879178/pexels-photo-879178.png')] bg-cover bg-center float-right mt-4 opacity-0 mb-16"
+          className="w-[100px] h-[100px] md:w-[200px] md:h-[100px] bg-[url('https://images.pexels.com/photos/879178/pexels-photo-879178.png')] bg-cover bg-center float-right mt-4 opacity-0 mb-16"
         ></div>
 
         <div className="absolute left-2 right-2 bottom-2 md:left-5 md:right-5 md:bottom-3 w-[95%] h-[50px] border border-black pl-4 p-2 flex justify-between">

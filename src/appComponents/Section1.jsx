@@ -5,14 +5,11 @@ import { IoMdSend } from "react-icons/io";
 import { GrAttachment } from "react-icons/gr";
 import { FaEarthAmericas } from "react-icons/fa6";
 import { FaCube } from "react-icons/fa6";
-import { LuMenu } from "react-icons/lu";
 import { Link } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../features/authSlice";
 
 const Section1 = () => {
   const { user, isAuthenticated } = useSelector((e) => e.auth);
-  const dispatch = useDispatch();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -28,73 +25,10 @@ const Section1 = () => {
     return () => typed.destroy();
   }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
-
-  useEffect(() => {
-    if (isMenuOpen) {
-      gsap.fromTo(
-        "#hamburger-menu",
-        {
-          x: "20%",
-          opacity: 0,
-        },
-        {
-          x: "0%",
-          opacity: 1,
-          duration: 1,
-        }
-      );
-    }
-  });
-
-  const handlelogout = () => {
-    dispatch(logout());
-  };
 
   return (
     <section id="hero" className="w-full min-h-screen relative">
-      <nav className="w-full h-[70px] border-b border-black flex justify-between text-black">
-        <div className="w-full md:w-[200px] h-full border-r border-black flex justify-center items-center">
-          <a href="/">MediLink</a>
-        </div>
-        <div className="w-full md:w-[400px] h-full">
-          <ul className="flex w-full h-full">
-            {isAuthenticated && (
-              <li className="w-[100px] h-full border-l border-black  md:flex items-center justify-center hover:bg-[#CAE8BD] transition hover:cursor-pointer hidden">
-                <img
-                  src={user?.avatar}
-                  alt="avatar"
-                  className="w-[30px] h-[30px]"
-                />
-              </li>
-            )}
-            <li className="w-[100px] h-full border-r border-l border-black pl-6 pr-6 md:flex items-center justify-center hover:bg-[#CAE8BD] transition hover:cursor-pointer hidden">
-              <a href="#ft">About</a>
-            </li>
-            <li className="w-[100px] h-full pl-6 pr-6 hidden md:flex items-center justify-center hover:bg-[#CAE8BD] transition hover:cursor-pointer">
-              Plans
-            </li>
-            <li className="w-[100px] h-full border-r border-l border-black pl-6 pr-6 hidden md:flex items-center justify-center hover:bg-[#CAE8BD] transition hover:cursor-pointer">
-              {isAuthenticated ? (
-                <a href="/" onClick={() => handlelogout()}>
-                  Logout
-                </a>
-              ) : (
-                <Link to={"/login"}>Login</Link>
-              )}
-            </li>
-            <li
-              className="w-full md:w-[100px] h-full pl-6 pr-6 flex items-center justify-center hover:bg-[#CAE8BD] transition hover:cursor-pointer"
-              onClick={toggleMenu}
-            >
-              <LuMenu className="text-[#3b3b1a]" />
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <div className="w-full h-[90vh] p-2 md:p-6">
+      <div className="w-full h-[90vh] p-2 md:p-6 mt-12">
         <div className="w-full h-full p-6 relative">
           <div
             id="slogen"
@@ -137,41 +71,6 @@ const Section1 = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      <div
-        id="hamburger-menu"
-        className={`w-1/2 md:w-[200px] h-50 fixed top-[13%] right-1 p-4${
-          isMenuOpen ? "" : " hidden"
-        }`}
-      >
-        <ul className="w-full h-full">
-          {isAuthenticated ? (
-            <a href="/" onClick={() => handlelogout()}>
-              <li className="w-full text-center mb-4 bg-[#437057] text-black p-1 cursor-pointer md:hidden">
-                Logout
-              </li>
-            </a>
-          ) : (
-            <Link to="/login">
-              <li className="w-full text-center mb-4 bg-[#437057] text-black p-1 cursor-pointer md:hidden">
-                Login
-              </li>
-            </Link>
-          )}
-          <li className="w-full text-center mb-4 bg-[#437057] text-black p-1 cursor-pointer md:hidden">
-            About
-          </li>
-          <li className="w-full text-center mb-4 bg-[#437057] text-black p-1 cursor-pointer">
-            Contact
-          </li>
-          {isAuthenticated && (
-            <li className="w-full text-center mb-4 bg-[#437057] text-black p-1 cursor-pointer flex items-center justify-center gap-3 md:hidden">
-              <img src={user?.avatar} alt="avatar" className="w-8 h-8" />
-                {user?.name?.split(" ")[0]}
-            </li>
-          )}
-        </ul>
       </div>
     </section>
   );
