@@ -8,6 +8,8 @@ import { getMe } from "./features/authSlice.js";
 import { ReactLenis } from 'lenis/react'
 import gsap from "gsap";
 import Section4 from "./appComponents/Section4.jsx";
+import Section5 from "./appComponents/Section5.jsx";
+import Section6 from "./appComponents/Section6.jsx";
 
 const App = () => {
   const lenisRef = useRef();
@@ -33,6 +35,8 @@ const App = () => {
       <Section1 />
       <Section2 />
       <Section4 />
+      <Section5 />
+      <Section6 />
       <Section3 />
     </>
   );

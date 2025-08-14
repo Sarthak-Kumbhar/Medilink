@@ -1,3 +1,7 @@
 .Ai {
 	box-shadow: #CAE8BD 0px 54px 55px, #CAE8BD 0px -12px 30px, #CAE8BD 0px 4px 6px, #CAE8BD 0px 12px 13px, #CAE8BD 0px -3px 5px;
 }
+
+.Ai-video {
+	box-shadow: #cae8bd55 0px 10px 50px;
+}
