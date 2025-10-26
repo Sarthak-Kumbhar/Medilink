@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { useState } from "react";
+
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const initialState = {
   user: null,
   isAuthenticated: false,
-  isLoading: false,
+  isLoading: true,
   isError: false,
   message: "",
 };
@@ -12,7 +13,7 @@ const initialState = {
 
 export const getMe = createAsyncThunk("auth/getMe", async (_, thunkAPI) => {
   try {
-    const res = await fetch("http://localhost:3878/api/v1/presence", {
+    const res = await fetch(`${BACKEND_URL}/presence`, {
       method: "GET",
       credentials: "include",
     });
@@ -32,7 +33,7 @@ export const normallogin = createAsyncThunk(
   "auth/login",
   async (userData, thunkAPI) => {
     try {
-      const res = await fetch("http://localhost:3878/api/v1/login", {
+      const res = await fetch(`${BACKEND_URL}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -60,10 +61,10 @@ export const googleLogin = createAsyncThunk(
   "auth/googleLogin",
   async ({ idtoken }, thunkAPI) => {
     try {
-      const res = await fetch("http://localhost:3878/api/v1/login/google", {
+      const res = await fetch(`${BACKEND_URL}/login/google`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json", 
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ idtoken }),
         credentials: "include",
@@ -84,7 +85,7 @@ export const googleLogin = createAsyncThunk(
 
 export const logout = createAsyncThunk("auth/logout", async (thunkAPI) => {
   try {
-    const res = await fetch("http://localhost:3878/api/v1/logout", {
+    const res = await fetch(`${BACKEND_URL}/logout`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
@@ -92,6 +93,9 @@ export const logout = createAsyncThunk("auth/logout", async (thunkAPI) => {
     if (!res.ok) {
       throw new Error("logout failed");
     }
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 100);
     return true;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -119,6 +123,7 @@ export const authSlice = createSlice({
         state.user = action.payload.user || action.payload;
       })
       .addCase(getMe.rejected, (state, action) => {
+        state.isLoading = false;
         state.isAuthenticated = false;
         state.isError = true;
         state.message = action.payload;

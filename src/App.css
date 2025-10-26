@@ -3,6 +3,10 @@ body {
   color: #8A784E;
 }
 
+::selection {
+  color: #E7EFC7;
+  background-color: #8A784E;
+}
 
 input::placeholder {
   color: #aec8a4 !important;

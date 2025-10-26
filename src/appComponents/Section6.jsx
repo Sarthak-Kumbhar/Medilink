@@ -68,8 +68,7 @@ const Section6 = () => {
             <h1 className="text-2xl md:text-5xl font-medium font-[nippo]">3.</h1>
           </div>
           <p className="mt-16 md:ml-6">
-            No, primarliy there is no feea but you have limited access to our
-            model. for high end use case you can by pay minimum amount.
+            No, now the service related to 3d model not available.
           </p>
         </div>
         <div
@@ -84,8 +83,7 @@ const Section6 = () => {
             <h1 className="text-2xl md:text-5xl font-medium font-[nippo]">2.</h1>
           </div>
           <p className="mt-22 md:mt-16 md:ml-6">
-            No, primarliy there is no feea but you have limited access to our
-            model. for high end use case you can by pay minimum amount.
+            Course details are only shown when you logged In.
           </p>
         </div>
         <div

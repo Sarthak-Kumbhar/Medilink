@@ -51,7 +51,7 @@ export default function Section5() {
           loop
           className="w-full h-full object-cover"
         >
-          <source src="https://videos.pexels.com/video-files/33400053/14218204_2560_1440_30fps.mp4" />
+          <source src="https://videos.pexels.com/video-files/4769557/4769557-uhd_2732_1440_25fps.mp4" />
         </video>
         <div
           ref={overlayRef}

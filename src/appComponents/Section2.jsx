@@ -54,13 +54,13 @@ const Section2 = () => {
   return (
     <section
       id="about"
-      className="w-full min-h-[100dvh] p-4 md:p-0 pt-4 pb-4 flex flex-col md:flex-row justify-between relative md:mb-0 mb-16 md:gap-0 gap-16"
+      className="w-full min-h-[100dvh] p-4 md:p-0 pt-4 pb-4 flex flex-col md:flex-row justify-between relative md:mb-0 mb-16 md:gap-0 gap-16 mt-8"
     >
       <div className="w-full md:w-1/2 h-full p-4">
         <h1 className="text-4xl">About</h1>
         <div className="max-w-[600px] mt-4">
-          We are team of Engineers, Solving Problem for that students face while there learning.
-          our idea is to improve the student way of learing providing them better understanding what they learn 😊
+          We are team of Engineers, Solving Problem that students face while there learning.
+          our idea is to improve the student way of learing providing them better understanding on what they learn 😊
         </div>
       </div>
 

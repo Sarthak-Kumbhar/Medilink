@@ -1,30 +1,53 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import gsap from "gsap";
 import Typed from "typed.js";
 import { IoMdSend } from "react-icons/io";
 import { GrAttachment } from "react-icons/gr";
 import { FaEarthAmericas } from "react-icons/fa6";
 import { FaCube } from "react-icons/fa6";
-import { Link } from "react-router";
-import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Section1 = () => {
-  const { user, isAuthenticated } = useSelector((e) => e.auth);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const typed = new Typed("#slogen", {
-      strings: ["Your Online tutor."],
-      typeSpeed: 100,
-      onComplete: () => {
-        gsap.fromTo("#sub-slogen", { opacity: 0 }, { opacity: 1, duration: 3 });
-        gsap.fromTo("#searchbar", { opacity: 0 }, { opacity: 1, duration: 3 });
-      },
+    const handleKeyDown = (e) => {
+      if (e.key === "Enter") {
+        navigate("/chat");
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [navigate]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.to("#slogen", {
+        scrollTrigger: {
+          trigger: "#slogen",
+          start: "top center",
+          end: "bottom center",
+          scrub: true,
+          onEnter: () => {
+            new Typed("#slogen", {
+              strings: ["Your Online tutor."],
+              typeSpeed: 100,
+              onComplete: () => {
+                gsap.fromTo("#sub-slogen", { opacity: 0 }, { opacity: 1, duration: 3 });
+                gsap.fromTo("#searchbar", { opacity: 0 }, { opacity: 1, duration: 3 });
+              },
+            });
+          },
+        },
+      });
     });
 
-    return () => typed.destroy();
+    return () => ctx.revert(); 
   }, []);
-
 
   return (
     <section id="hero" className="w-full min-h-screen relative">

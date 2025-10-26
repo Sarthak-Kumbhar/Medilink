@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { Link } from "react-router";
 
 const Section4 = () => {
   useEffect(() => {
@@ -60,12 +61,12 @@ const Section4 = () => {
         <p className="mt-4 sm:mt-6 md:mt-8 text-gray-200">
           Better understanding will improve your knowledge
         </p>
-        <button className="mt-6 sm:mt-8 md:mt-12 border border-white w-[130px] sm:w-[150px] h-[45px] sm:h-[50px] flex justify-between items-center pl-4 pr-4 text-base sm:text-lg md:text-xl text-white cursor-pointer hover:bg-white hover:text-[#004030] transition-all">
+        <Link to="/courses/u" className="mt-6 sm:mt-8 md:mt-12 border border-white w-[130px] sm:w-[150px] h-[45px] sm:h-[50px] flex justify-between items-center pl-4 pr-4 text-base sm:text-lg md:text-xl text-white cursor-pointer hover:bg-white hover:text-[#004030] transition-all">
           Start
           <span>
             <IoIosArrowRoundForward size={28} className="rotate-[-30deg]" />
           </span>
-        </button>
+        </Link>
       </div>
 
       <div className="w-full lg:w-1/2 h-full flex justify-end p-4 sm:p-6 md:p-8">

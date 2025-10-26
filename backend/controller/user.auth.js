@@ -61,10 +61,6 @@ export const googleLogin = asyncHandler(async (req, res) => {
 
   const user = await getOrCreateUser({ email: email, googleId: googleId, name: name, avatar: avatar });
 
-  if (user.googleId !== googleId) {
-    throw new SendError("Google credentials do not match", 401);
-  }
-
   const token = generateToken({ id: user._id, email: user.email, name: user.name, avatar: user.avatar });
 
   res
@@ -117,6 +113,7 @@ export const login = asyncHandler(async (req, res) => {
     .cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
+      sameSite: (process.env.NODE_ENV === "production") ? "none" : "strict",
       maxAge: 2 * 60 * 60 * 1000,
     })
     .json({
@@ -136,6 +133,8 @@ export const logout = asyncHandler(async (req, res) => {
     .clearCookie("token", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
+      sameSite: (process.env.NODE_ENV === "production") ? "none" : "strict",
+      path: "/",
     })
     .status(200)
     .json({ message: "Logout successful" });

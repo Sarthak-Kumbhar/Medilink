@@ -55,11 +55,11 @@ const Navbar = ({ child }) => {
               <a href="#ft">About</a>
             </li>
             <li className="w-[100px] h-full pl-6 pr-6 hidden md:flex items-center justify-center hover:bg-[#CAE8BD] transition hover:cursor-pointer">
-              Plans
+              <Link to={"/plans"}>Plans</Link>
             </li>
             <li className="w-[100px] h-full border-r border-l border-black pl-6 pr-6 hidden md:flex items-center justify-center hover:bg-[#CAE8BD] transition hover:cursor-pointer">
               {isAuthenticated ? (
-                <a href="/" onClick={() => handlelogout()}>
+                <a onClick={() => handlelogout()}>
                   Logout
                 </a>
               ) : (
@@ -96,13 +96,15 @@ const Navbar = ({ child }) => {
               </li>
             </Link>
           )}
-          <li className="w-full text-center mb-4 bg-[#437057] text-black p-1 cursor-pointer md:hidden">
-            About
-          </li>
           <Link to="/courses/u">
             <li className="w-full z-999 text-center mb-4 bg-[#437057] text-black p-1 cursor-pointer">
               Courses
             </li>
+          </Link>
+          <Link to="/plans">
+              <li className="w-full z-999 text-center mb-4 bg-[#437057] text-black p-1 cursor-pointer md:hidden">
+                Plans
+              </li>
           </Link>
           {isAuthenticated && (
             <li className="w-full text-center mb-4 bg-[#437057] text-black p-1 cursor-pointer flex items-center justify-center gap-3 md:hidden">

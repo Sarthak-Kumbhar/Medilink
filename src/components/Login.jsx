@@ -1,6 +1,5 @@
 import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
 import { useDispatch } from "react-redux";
-import { FaGoogle } from "react-icons/fa";
 import { googleLogin, normallogin } from "../features/authSlice.js";
 import { useRef } from "react";
 import { useSelector } from "react-redux";
